@@ -1,0 +1,19 @@
+---
+- name: Configure Abode DevOps Environment
+  hosts: localhost
+  connection: local
+  become: yes
+
+  tasks:
+    - name: Update apt package cache
+      apt:
+        update_cache: yes
+
+    - name: Install required DevOps tools
+      apt:
+        name:
+          - git
+          - curl
+          - python3
+          - python3-pip
+        state: present
